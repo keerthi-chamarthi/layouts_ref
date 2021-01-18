@@ -3,7 +3,6 @@ import '../Styles/header.css';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
 import Grid from '@material-ui/core/Grid';
@@ -12,12 +11,11 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import HelpIcon from '@material-ui/icons/Help';
 
 import Hamburger from "./hamburger";
-import Search from "./search";
-import Profilepic from "./profilepic";
-import Username from "./username";
+import Logo from "./logo";
+import Profile from "./Profile";
+import MenuBar from "./profilemenu";
 
 import data from "../JSON/data";
-import photo from "../images/logo.jpg";
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -60,7 +58,7 @@ function Header(){
               <Grid item xs = {4}>
                 <Grid container>
                   <Grid item xs = {3}>
-                    {children["homeicon"]!=undefined?<HomeIcon fontSize="large" color = "action"/> : null}
+                    {children["homeicon"]!==undefined?<HomeIcon fontSize="large" color = "action"/> : null}
                   </Grid>
                   <Grid item xs = {3}>
                     {children["notifications"]!=undefined ? <NotificationsIcon fontSize = "large" color = "action" /> : null}
@@ -74,17 +72,10 @@ function Header(){
                 </Grid>
               </Grid>
               <Grid item xs = {4}>
-                <Grid container >
-                  <Grid item xs = {2}>
-                    <Profilepic key = {uuidv4()}/>
-                  </Grid>
-                  <Grid item xs = {10}>
-                    <Username key = {new uuidv4()}/>
-                  </Grid>
-                </Grid>
+                {children["profile"]!==undefined ? <Profile key = {new uuidv4()} details = {children["profile"]} />:null}
               </Grid>
               <Grid item xs = {4}>
-              <img src={photo} width = "200" height = "40"/>
+                {children["logo"]!==undefined? <Logo key = {new uuidv4()} details = {children["logo"]}/> : null}
               </Grid>
             </Grid>
           </Grid> 
