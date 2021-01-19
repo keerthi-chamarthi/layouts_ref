@@ -3,19 +3,13 @@ import '../Styles/header.css';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import HomeIcon from '@material-ui/icons/Home';
 import Grid from '@material-ui/core/Grid';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import SettingsIcon from '@material-ui/icons/Settings';
-import HelpIcon from '@material-ui/icons/Help';
 
-import Hamburger from "./hamburger";
-import Logo from "./logo";
-import Profile from "./Profile";
-import MenuBar from "./profilemenu";
+import Section1 from "./HeaderComponents/section1";
+import Section3 from "./HeaderComponents/section3";
 
 import data from "../JSON/data";
+import trailcontent from "../JSON/trail.json";
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -38,46 +32,23 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-function Header(){
+function Header(props){
     const classes = useStyles();
-    const children = data.content.children;
-    console.log(children);
+    const content = props.data["content"];
+    const children = content["children"];
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className = {classes.masthead}>
         <Grid container>
-          <Grid item xs={1}>
-            {children["hamburger"]!=undefined? <Hamburger key = {uuidv4()} /> : null}
+          <Grid item xs={3} className = "section1">
+            {children["section1"]!==undefined? <Section1 key = {uuidv4()} components = {children["section1"]}/> : null}
           </Grid>
-          <Grid item xs={5}>
+          <Grid item md={3} className = "section2">
           </Grid>
-          <Grid item xs = {6}>
-            <Grid container>
-              <Grid item xs = {4}>
-                <Grid container>
-                  <Grid item xs = {3}>
-                    {children["homeicon"]!==undefined?<HomeIcon fontSize="large" color = "action"/> : null}
-                  </Grid>
-                  <Grid item xs = {3}>
-                    {children["notifications"]!=undefined ? <NotificationsIcon fontSize = "large" color = "action" /> : null}
-                  </Grid>
-                  <Grid item xs = {3}>
-                    {children["settings"]!=undefined ? <SettingsIcon fontSize = "large" color = "action" /> : null}
-                  </Grid>
-                  <Grid item xs = {3}>
-                    {children["help"]!=undefined? <HelpIcon fontSize = "large" color = "action" /> : null}
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs = {4}>
-                {children["profile"]!==undefined ? <Profile key = {new uuidv4()} details = {children["profile"]} />:null}
-              </Grid>
-              <Grid item xs = {4}>
-                {children["logo"]!==undefined? <Logo key = {new uuidv4()} details = {children["logo"]}/> : null}
-              </Grid>
-            </Grid>
+          <Grid item xs = {6} className = "section3">
+            {children["section3"] !== undefined ? <Section3 key = {uuidv4()} components = {children["section3"]} /> : null}
           </Grid> 
         </Grid>
         </Toolbar>
