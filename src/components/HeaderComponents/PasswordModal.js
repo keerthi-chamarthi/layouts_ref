@@ -4,19 +4,21 @@ import { Button } from "@material-ui/core";
 
 const PasswordModal = (props) => {
     const components = props.content.components;
-    // return components.map((component)=>{
-    //     if(component.type==="Textfield"){
-    //         return <TextField label={component.name} variant="outlined"/>
-    //     }
-    //     else if(component.type === "Button"){
-    //         return <Button>{component.name}</Button>
-    //     }
-    // });
-    return <form>
-        <TextField label = "Current Password" variant = "outlined"/><br/><br/>
-        <TextField label = "New Password" variant = "outlined"/><br/><br />
-        <TextField label = "Confirm Password" variant = "outlined"/><br/><br />
-    </form>
+    const endfunction = props.endfunction;
+    return <form>{components.map((component)=>{
+        if(component.type === "Textfield"){
+            return(<div>
+                <TextField label = {component.name} variant = "outlined"/>
+            </div>)
+        }
+        else if(component.type === "Button"){
+            return(
+                <div>
+                    <Button variant = "contained" color = "primary" onClick = {endfunction}>{component.name}</Button>
+                </div>
+            )
+        }
+    })}</form>;
 };
 
 export default PasswordModal;

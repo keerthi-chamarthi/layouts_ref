@@ -18,7 +18,7 @@ const Username = (props) => {
   
     return(<div> 
         <Typography variant = "p" style={{color: "black"}}>
-          {props.name}<span><ExpandMoreIcon color="action" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} /></span>
+          {props.name}<span><ExpandMoreIcon color="action" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style = {{paddingTop:5}}/></span>
         </Typography>
         <Menu
         id="simple-menu"

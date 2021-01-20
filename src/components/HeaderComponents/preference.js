@@ -71,13 +71,8 @@ export default function Preference(props) {
           Modal title
         </DialogTitle>
         <DialogContent dividers>
-          <ChangePassword />
+          <ChangePassword submit = {handleClose}/>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
-          </Button>
-        </DialogActions>
       </Dialog>
     </div>
   );

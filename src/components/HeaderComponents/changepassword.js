@@ -2,7 +2,8 @@ import React, { useState,useEffect } from "react";
 import {getChangePasswordJSON} from "../../services/axioservice";
 import PasswordModal from "./PasswordModal";
 
-const ChangePassword = () => {
+
+const ChangePassword = (props) => {
   const [details,setDetails] = useState(null);
   useEffect(()=>{
     if(details===null){
@@ -11,7 +12,7 @@ const ChangePassword = () => {
   });
   return(
     <div>
-      {details && <PasswordModal content = {details.content}/>}
+      {details && <PasswordModal content = {details.content} endfunction = {props.submit}/>}
     </div>
   )
 };
