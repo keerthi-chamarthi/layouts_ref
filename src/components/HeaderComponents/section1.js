@@ -8,7 +8,7 @@ const Section1 = (props) => {
     const components = props.components;
     return(
         <Grid container>
-            <Grid xs = {1} className = "hamburger">
+            <Grid xs = {2} className = "hamburger">
                 {components["hamburger"] !== undefined ? <Hamburger />:null}
             </Grid>
             <Grid xs = {4} className = "employwiselogo">

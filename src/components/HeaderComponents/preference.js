@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import { MenuItem } from "@material-ui/core";
+import ChangePassword from './changepassword';
 
 const styles = (theme) => ({
   root: {
@@ -62,7 +63,6 @@ export default function Preference(props) {
   };
   var updateditem = props.item;
   updateditem = updateditem.replace(/\s+/g, '').toLowerCase();
-    
   return (
     <div>
       <MenuItem name ={updateditem}  onClick = {(e)=>handleClickOpen(updateditem,e)}>{props.item}</MenuItem>
@@ -71,10 +71,7 @@ export default function Preference(props) {
           Modal title
         </DialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-          </Typography>
+          <ChangePassword />
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">

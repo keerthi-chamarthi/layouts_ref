@@ -2,6 +2,7 @@ import React from "react";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Menu from '@material-ui/core/Menu';
 import Preference from "./preference";
+import { Grid, Typography } from "@material-ui/core";
 
 const Username = (props) => {
     const preferences = props.preferences;
@@ -14,8 +15,11 @@ const Username = (props) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+  
     return(<div> 
-        <p style={{color: "black"}} >{props.name}<span><ExpandMoreIcon color="action" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} /></span></p>
+        <Typography variant = "p" style={{color: "black"}}>
+          {props.name}<span><ExpandMoreIcon color="action" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} /></span>
+        </Typography>
         <Menu
         id="simple-menu"
         anchorEl={anchorEl}

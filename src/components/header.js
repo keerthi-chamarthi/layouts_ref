@@ -42,12 +42,12 @@ function Header(props){
       <AppBar position="static">
         <Toolbar className = {classes.masthead}>
         <Grid container>
-          <Grid item xs={3} className = "section1">
+          <Grid item xs={4} md={3} className = "section1">
             {children["section1"]!==undefined? <Section1 key = {uuidv4()} components = {children["section1"]}/> : null}
           </Grid>
-          <Grid item md={3} className = "section2">
+          <Grid item xs={1} md={3} lg={4} className = "section2">
           </Grid>
-          <Grid item xs = {6} className = "section3">
+          <Grid item xs={7} md ={6} lg = {5} className = "section3">
             {children["section3"] !== undefined ? <Section3 key = {uuidv4()} components = {children["section3"]} /> : null}
           </Grid> 
         </Grid>

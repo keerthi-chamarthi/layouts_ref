@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Profile = (props) => {
     return (
-    <Grid container >
+    <Grid container spacing = {4}>
     <Grid item xs = {2}>
       <Profilepic key = {new uuidv4()} source = {props.details.imagelink} />
     </Grid>

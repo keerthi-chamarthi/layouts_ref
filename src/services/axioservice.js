@@ -1,5 +1,6 @@
 import axios from 'axios';
 import content from "../JSON/trail.json";
+import changepasswordjson from "../JSON/passwordchange.json";
 
 async function AxiosService(){
     //console.log(content);
@@ -7,4 +8,9 @@ async function AxiosService(){
     return content;
 }
 
+async function getChangePasswordJSON(){
+    return changepasswordjson;
+}
+
 export default AxiosService;
+export {getChangePasswordJSON};

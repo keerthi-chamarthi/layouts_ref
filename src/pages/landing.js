@@ -20,7 +20,7 @@ function Landing(){
     return(
         <div>
             <div className="header">
-                {headerdata && <Header data = {headerdata}/>}
+                {headerdata && <Header data = {headerdata} style = {{backgroundColor:"black"}}/>}
             </div>
 
             <div className="body">
